@@ -1,0 +1,14 @@
+Package: handyTools
+Type: Package
+Title: A collection of handy R tools
+Version: 0.1.0
+Author@R:
+c(person("Gildas","Lepennetier",email="gildas.lepennetier@hotmail.fr",role=c("aut","cre")))
+Maintainer: handyTools <gildas.lepennetier@hotmail.fr>
+Description: A collection of handy R tools
+    This collection of tools, in the form of functions, is meant to help R users 
+    in their daily tasks. Designed to be easy to use, the functions are
+    meant to be solving common problems that R users encounter. 
+License: GNU GPLv3 - see https://choosealicense.com/licenses/gpl-3.0/
+Encoding: UTF-8
+LazyData: true
