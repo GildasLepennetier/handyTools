@@ -9,7 +9,7 @@ get_holidays(
   from_date = format(Sys.Date(), "\%Y-01-01"),
   to_date = format(Sys.Date(), "\%Y-12-31"),
   countryIsoCode = "DE",
-  languageIsoCode = "DE"
+  languageIsoCode = "EN"
 )
 }
 \arguments{
