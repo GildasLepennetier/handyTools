@@ -1,7 +1,7 @@
 Package: handyTools
 Type: Package
 Title: A collection of handy R tools
-Version: 0.1.1
+Version: 0.1.02
 Authors@R:
 	c(person("Gildas","Lepennetier",email="gildas.lepennetier@hotmail.fr",role=c("aut","cre")))
 Maintainer: handyTools <gildas.lepennetier@hotmail.fr>
@@ -15,9 +15,12 @@ LazyData: true
 Depends: 
     R (>= 4.0)
 Imports:
-	dplyr,
-	tidyr,
-	tibble,
-	jsonlite,
-	magrittr
+    dplyr,
+    tidyr,
+    tibble,
+    purrr,
+    rlang,
+    jsonlite,
+    magrittr,
+    lubridate
 RoxygenNote: 7.3.2
