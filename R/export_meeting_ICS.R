@@ -22,7 +22,7 @@
 #' ends <- paste0(dates, paste0(" 11:30:00 ", Sys.timezone()))
 #' export_meeting_ICS(starts, ends, "Shopping")
 #'
-#' @return 0, but either save to a file or write into terminal
+#' @return text file with the iCalendar format
 
 export_meeting_ICS <- function(start, end, meeting_title, outfile = NULL, domain = NULL) {
 	stopifnot(length(start) == length(end))
@@ -45,12 +45,12 @@ export_meeting_ICS <- function(start, end, meeting_title, outfile = NULL, domain
 					 "\nSUMMARY:", meeting_title, "\nEND:VEVENT")
 	})
 	END <- "END:VCALENDAR"
+	final_data <- paste0(HEADER, paste(EVENTS, collapse = "\n"), END)
 	if (is.null(outfile)) {
-		final_data <- paste0(HEADER, paste(EVENTS, collapse = "\n"), END)
 		sprintf(final_data)
-		return(0)
+		return(final_data)
 	} else {
-		writeLines(c(HEADER, EVENTS, END), con = outfile)
-		return(0)
+		writeLines(final_data, con = outfile)
+		return(final_data)
 	}
 }

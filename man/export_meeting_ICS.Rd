@@ -19,12 +19,10 @@ a serie. This will be converted to GMT time zone (expected by iCalendar)}
 \item{domain}{a domain name. Concatenated to the UUID if given}
 }
 \value{
-0, but either save to a file or write into terminal
+text file with the iCalendar format
 }
 \description{
-Create a minimal iCalendar VEVENT
-Using the lubridate::with_tz() function convert in the expected timezone
-using R local, see Sys.timezone()
+TODO: add LOCATION, DESCRIPTION, ATTENDEE, ORGANIZER, etc.
 }
 \examples{
 dates <- c("2024-09-14", "2024-09-21", "2024-09-28")
