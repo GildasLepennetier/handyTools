@@ -3,6 +3,8 @@
 #' Using the lubridate::with_tz() function convert in the expected timezone
 #' using R local, see Sys.timezone()
 #'
+#' TODO: add LOCATION, DESCRIPTION, ATTENDEE, ORGANIZER, etc.
+#'
 #' @param start,end start and end times of the event, can be a list to create
 #' a serie. This will be converted to GMT time zone (expected by iCalendar)
 #' @param meeting_title a meeting title of the event.
