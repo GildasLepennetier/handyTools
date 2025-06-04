@@ -12,3 +12,7 @@ git clone https://github.com/GildasLepennetier/handyTools.git
 install using R
 
 devtools::install_local("~/Documents/Github/handyTools")
+
+# check package
+
+devtools::check()
