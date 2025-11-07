@@ -4,7 +4,11 @@
 \alias{connect_db}
 \title{Connect DB}
 \usage{
-connect_db(config_path, credential_name, set_utf8 = TRUE)
+connect_db(
+  config_path = "~/dbconfig.yml",
+  credential_name = NULL,
+  set_utf8 = TRUE
+)
 }
 \arguments{
 \item{config_path}{config file path, e.g. "~/dbconfig.yml" ; file.edit("~/dbconfig.yml")}
