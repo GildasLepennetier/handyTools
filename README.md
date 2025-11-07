@@ -4,6 +4,17 @@
 This R package contains a collection of useful functions.
 
 
+# installation
+
+## using remote
+
+	remotes::install_github("GildasLepennetier/handyTools")
+
+## clone locally the repository
+
+	git clone https://github.com/GildasLepennetier/handyTools.git
+	devtools::install_local("~/Documents/Github/handyTools")
+
 ## connect_db.R 
 
 Create a connection to a database, based on a ~/dbconfig.yml
@@ -42,17 +53,6 @@ Wrapper to handle missing data when extracting from a web page, e.g. using rvest
 ## show_in_excel.R 
 
 Send a dataframe to this function, it will create a temporary excel file.
-
-# installation
-
-## using remote
-
-	remotes::install_github("GildasLepennetier/handyTools")
-
-## clone locally the repository
-
-	git clone https://github.com/GildasLepennetier/handyTools.git
-	devtools::install_local("~/Documents/Github/handyTools")
 
 # check package
 
