@@ -55,5 +55,7 @@ Wrapper to handle missing data when extracting from a web page, e.g. using rvest
 Send a dataframe to this function, it will create a temporary excel file.
 
 # check package
-
+	
+	devtools::document()
 	devtools::check()
+	devtools::build()
