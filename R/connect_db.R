@@ -13,7 +13,7 @@
 #' @return a connection handle
 #' @export
 connect_db <- function(config_path = "~/dbconfig.yml", credential_name = NULL, set_utf8 = TRUE){
-	config <- config::get(file = path.expand(config_path), value = credential_name)
+	config <- config::get(file = config_path, value = credential_name)
 	con <- DBI::dbConnect(
 		RMySQL::MySQL(),
 		host = config$host,
