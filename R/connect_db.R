@@ -4,7 +4,7 @@
 #'
 #' @param config_path config file path, e.g. "~/dbconfig.yml" ; file.edit("~/dbconfig.yml")
 #' @param credential_name credential name, e.g. "aws_devel"
-#' @param set_utf8 logical, whether to set utf8
+#' @param command command to run after connect, typical: set utf8
 #'
 #' @importFrom DBI dbConnect dbExecute
 #' @importFrom RMySQL MySQL
@@ -12,7 +12,7 @@
 #'
 #' @return a connection handle
 #' @export
-connect_db <- function(config_path = "~/dbconfig.yml", credential_name = NULL, set_utf8 = TRUE){
+connect_db <- function(credential_name = NULL, config_path = "~/dbconfig.yml", command = "set names utf8"){
 	config <- config::get(file = config_path, value = credential_name)
 	con <- DBI::dbConnect(
 		RMySQL::MySQL(),
@@ -22,8 +22,8 @@ connect_db <- function(config_path = "~/dbconfig.yml", credential_name = NULL, s
 		port   = config$port,
 		dbname = config$dbname
 	)
-	if (set_utf8) {
-		DBI::dbExecute(con,"set names utf8")
+	if (command) {
+		DBI::dbExecute(con,command)
 	}
 	return(con)
 }

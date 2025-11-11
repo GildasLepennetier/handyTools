@@ -5,17 +5,17 @@
 \title{Connect DB}
 \usage{
 connect_db(
-  config_path = "~/dbconfig.yml",
   credential_name = NULL,
-  set_utf8 = TRUE
+  config_path = "~/dbconfig.yml",
+  command = "set names utf8"
 )
 }
 \arguments{
-\item{config_path}{config file path, e.g. "~/dbconfig.yml" ; file.edit("~/dbconfig.yml")}
-
 \item{credential_name}{credential name, e.g. "aws_devel"}
 
-\item{set_utf8}{logical, whether to set utf8}
+\item{config_path}{config file path, e.g. "~/dbconfig.yml" ; file.edit("~/dbconfig.yml")}
+
+\item{command}{command to run after connect, typical: set utf8}
 }
 \value{
 a connection handle
