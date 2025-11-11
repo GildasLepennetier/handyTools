@@ -22,7 +22,7 @@ connect_db <- function(credential_name = NULL, config_path = "~/dbconfig.yml", c
 		port   = config$port,
 		dbname = config$dbname
 	)
-	if (command) {
+	if (!is.na(command) | is.null(command) | command != ""){
 		DBI::dbExecute(con,command)
 	}
 	return(con)
