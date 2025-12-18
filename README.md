@@ -13,7 +13,7 @@ This R package contains a collection of useful functions.
 ## clone locally the repository
 
 	git clone https://github.com/GildasLepennetier/handyTools.git
-	devtools::install_local("~/Documents/Github/handyTools")
+	devtools::install_local("~/Github/handyTools")
 
 ## connect_db.R 
 
