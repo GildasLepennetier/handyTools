@@ -11,6 +11,9 @@
 #' @importFrom rlang enquo
 #' @importFrom purrr map2_dfr
 #' @importFrom jsonlite fromJSON
+#' @importFrom dplyr rename
+#' @importFrom dplyr %>%
+#' @importFrom dplyr join_by
 #' @return dataframe with extracted json columns#'
 #' @export
 extract_json_v6 <- function (.x, .id, .col, relationship = NULL){
