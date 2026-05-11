@@ -1,7 +1,7 @@
 Package: handyTools
 Type: Package
 Title: A collection of handy R tools
-Version: 0.2.11
+Version: 0.2.12
 Authors@R:
 	c(person("Gildas","Lepennetier",email="gildas.lepennetier@hotmail.fr",role=c("aut","cre")))
 Maintainer: handyTools <gildas.lepennetier@hotmail.fr>
@@ -30,7 +30,5 @@ Imports:
     openxlsx,
     fs,
     writexl,
-    furrr,
-    future,
     glue
 RoxygenNote: 7.3.3
