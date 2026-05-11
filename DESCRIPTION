@@ -1,7 +1,7 @@
 Package: handyTools
 Type: Package
 Title: A collection of handy R tools
-Version: 0.2.12
+Version: 0.2.13
 Authors@R:
 	c(person("Gildas","Lepennetier",email="gildas.lepennetier@hotmail.fr",role=c("aut","cre")))
 Maintainer: handyTools <gildas.lepennetier@hotmail.fr>
@@ -25,7 +25,7 @@ Imports:
     lubridate,
     uuid,
     DBI,
-    RMySQL,
+    RMariaDB,
     config,
     openxlsx,
     fs,

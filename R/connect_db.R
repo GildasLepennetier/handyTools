@@ -7,7 +7,7 @@
 #' @param command command to run after connect, typical: set utf8
 #'
 #' @importFrom DBI dbConnect dbExecute
-#' @importFrom RMySQL MySQL
+#' @importFrom RMariaDB MariaDB
 #' @importFrom config get
 #'
 #' @return a connection handle
@@ -15,7 +15,7 @@
 connect_db <- function(credential_name = NULL, config_path = "~/dbconfig.yml", command = "set names utf8"){
 	config <- config::get(file = config_path, value = credential_name)
 	con <- DBI::dbConnect(
-		RMySQL::MySQL(),
+		RMariaDB::MariaDB(),
 		host = config$host,
 		user = config$user,
 		password = config$password,
