@@ -16,12 +16,14 @@ connect_db <- function(credential_name = NULL, config_path = "~/dbconfig.yml", c
 	config <- config::get(file = config_path, value = credential_name)
 	con <- DBI::dbConnect(
 		RMariaDB::MariaDB(),
-		host = config$host,
-		user = config$user,
+		host     = config$host,
+		user     = config$user,
 		password = config$password,
-		port   = config$port,
-		dbname = config$dbname
+		port     = config$port,
+		dbname   = config$dbname,
+		ssl.mode = "required"   # encrypts but skips CA verification
 	)
+
 	if (!is.na(command) | is.null(command) | command != ""){
 		DBI::dbExecute(con,command)
 	}

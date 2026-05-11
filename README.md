@@ -15,7 +15,9 @@ This R package contains a collection of useful functions.
 	devtools::install_local("~/Github/handyTools")
 
 # check package - developer
+	
 	Sys.setenv("_R_CHECK_SYSTEM_CLOCK_" = "0")
 	devtools::document()
 	devtools::check()
 	devtools::build()
+
