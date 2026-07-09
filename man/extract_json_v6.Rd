@@ -4,7 +4,7 @@
 \alias{extract_json_v6}
 \title{Extract json from column}
 \usage{
-extract_json_v6(.x, .id, .col, relationship = NULL, rm_col = TRUE)
+extract_json_v6(.x, .id, .col, relationship = NULL, rm_col = FALSE)
 }
 \arguments{
 \item{.x}{dataframe}

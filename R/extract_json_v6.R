@@ -17,7 +17,7 @@
 #' @importFrom dplyr join_by
 #' @return dataframe with extracted json columns#'
 #' @export
-extract_json_v6 <- function (.x, .id, .col, relationship = NULL, rm_col = TRUE){
+extract_json_v6 <- function (.x, .id, .col, relationship = NULL, rm_col = FALSE){
   .col = enquo(.col)
   .id = enquo(.id)
   df1 <- map2_dfr(.x %>% pull({{.id}}), .x %>% pull({{.col}}), .f = function(this_id, json) {
