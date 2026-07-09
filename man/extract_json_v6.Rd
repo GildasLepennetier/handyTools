@@ -4,7 +4,7 @@
 \alias{extract_json_v6}
 \title{Extract json from column}
 \usage{
-extract_json_v6(.x, .id, .col, relationship = NULL)
+extract_json_v6(.x, .id, .col, relationship = NULL, rm_col = TRUE)
 }
 \arguments{
 \item{.x}{dataframe}
@@ -14,6 +14,8 @@ extract_json_v6(.x, .id, .col, relationship = NULL)
 \item{.col}{column with json to extract}
 
 \item{relationship}{if some many-to-many are expected, use this option}
+
+\item{rm_col}{remove the column from the df returned since data is extracted}
 }
 \value{
 dataframe with extracted json columns#'
