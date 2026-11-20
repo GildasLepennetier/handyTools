@@ -18,6 +18,12 @@
 #' mutate(y = normalize_0_to_1(x))
 #' }
 normalize_0_to_1 <- function(x, na.rm = TRUE, all_same_return = 0.5){
-  if (length(unique(x)) == 1) {return(rep(all_same_return, length(x)))}
+  values <- if (na.rm) x[!is.na(x)] else x
+  if (length(values) == 0) {return(x)}
+  if (length(unique(values)) == 1) {
+    result <- rep(all_same_return, length(x))
+    result[is.na(x)] <- NA
+    return(result)
+  }
   (x - min(x, na.rm = na.rm)) / (max(x, na.rm = na.rm) - min(x, na.rm = na.rm)) 
   }
