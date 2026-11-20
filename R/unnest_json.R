@@ -90,8 +90,8 @@ unnest_json <- function(
 		.id,
 		.col,
 		relationship = NULL,
-		rm_col = FALSE,
-		autoprefix = FALSE,
+		rm_col = TRUE,
+		autoprefix = TRUE,
 		flatten = TRUE
 ) {
 
