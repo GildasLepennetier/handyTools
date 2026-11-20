@@ -4,15 +4,7 @@
 \alias{unnest_json}
 \title{Unnest JSON from a column}
 \usage{
-unnest_json(
-  .x,
-  .id,
-  .col,
-  relationship = NULL,
-  rm_col = TRUE,
-  autoprefix = TRUE,
-  flatten = TRUE
-)
+unnest_json(.x, .id, .col, relationship = NULL, rm_col = TRUE, flatten = TRUE)
 }
 \arguments{
 \item{.x}{Dataframe.}
@@ -25,9 +17,6 @@ unnest_json(
 [dplyr::left_join()].}
 
 \item{rm_col}{Logical. Remove the source JSON column from the output.}
-
-\item{autoprefix}{Logical. Prefix extracted column names with the name of
-`.col`.}
 
 \item{flatten}{Logical. Passed to [jsonlite::fromJSON()].}
 }
@@ -47,8 +36,7 @@ df <- tibble::tibble(
 unnest_json(
   df,
   id,
-  properties,
-  autoprefix = TRUE
+  properties
 )
 
 }

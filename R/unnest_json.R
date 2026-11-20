@@ -8,11 +8,8 @@ parse_json <- function(json, flatten = TRUE) {
 
 # Internal helper ---------------------------------------------------------
 
-prefix_names <- function(df, prefix = NULL) {
-
-	if (!is.null(prefix) && nzchar(prefix)) {
-		names(df) <- paste(prefix, names(df), sep = "_")
-	}
+prefix_names <- function(df, prefix) {
+	names(df) <- paste(prefix, names(df), sep = "_")
 
 	df
 }
@@ -23,7 +20,6 @@ expand_json_column <- function(
 		.x,
 		.id,
 		.col,
-		autoprefix = FALSE,
 		flatten = TRUE
 ) {
 
@@ -37,7 +33,7 @@ expand_json_column <- function(
 
 			res <- parse_json(json, flatten = flatten) |>
 				prefix_names(
-					prefix = if (autoprefix) col_name else NULL
+					prefix = col_name
 				)
 
 			res[[id_name]] <- this_id
@@ -58,8 +54,6 @@ expand_json_column <- function(
 #' @param relationship Relationship specification passed to
 #'   [dplyr::left_join()].
 #' @param rm_col Logical. Remove the source JSON column from the output.
-#' @param autoprefix Logical. Prefix extracted column names with the name of
-#'   `.col`.
 #' @param flatten Logical. Passed to [jsonlite::fromJSON()].
 #'
 #' @return A dataframe with extracted JSON fields added as columns.
@@ -73,8 +67,7 @@ expand_json_column <- function(
 #' unnest_json(
 #'   df,
 #'   id,
-#'   properties,
-#'   autoprefix = TRUE
+#'   properties
 #' )
 #'
 #' @importFrom dplyr pull
@@ -91,7 +84,6 @@ unnest_json <- function(
 		.col,
 		relationship = NULL,
 		rm_col = TRUE,
-		autoprefix = TRUE,
 		flatten = TRUE
 ) {
 
@@ -101,7 +93,6 @@ unnest_json <- function(
 		.x = .x,
 		.id = {{ .id }},
 		.col = {{ .col }},
-		autoprefix = autoprefix,
 		flatten = flatten
 	)
 
