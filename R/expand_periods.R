@@ -34,8 +34,13 @@ expand_periods <- function(df, id_col = "id", start_col = "start",
 	# convert start_col and end_col using as_datetime
 	df[[start_col]] <- as_datetime(df[[start_col]])
 	df[[end_col]] <- as_datetime(df[[end_col]])
+	if (nrow(df) == 0L) {
+		result <- df[integer(), , drop = FALSE]
+		result[[out_col]] <- df[[start_col]][integer()]
+		return(result[, c(out_col, setdiff(names(result), out_col)), drop = FALSE])
+	}
 	# create sequences
-	map_df(1:nrow(df), function(.row_number){
+	map_df(seq_len(nrow(df)), function(.row_number){
 		start <- df[[start_col]][.row_number]
 		end <- df[[end_col]][.row_number]
 		tmp <- tibble(tmp_name = seq(start, end, by = range_of)) %>%
