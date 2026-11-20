@@ -13,6 +13,19 @@
 #' @return a connection handle
 #' @export
 connect_db <- function(credential_name = NULL, config_path = "~/dbconfig.yml", command = "set names utf8"){
+	if (!is.null(command)) {
+		if (length(command) != 1L) {
+			stop("command must be NULL or a single value")
+		}
+		if (isTRUE(is.na(command))) {
+			command <- NULL
+		} else if (!is.character(command)) {
+			stop("command must be a character string")
+		} else if (!nzchar(command)) {
+			command <- NULL
+		}
+	}
+
 	config <- config::get(file = config_path, value = credential_name)
 	con <- DBI::dbConnect(
 		RMariaDB::MariaDB(),
@@ -24,8 +37,8 @@ connect_db <- function(credential_name = NULL, config_path = "~/dbconfig.yml", c
 		ssl.mode = "required"   # encrypts but skips CA verification
 	)
 
-	if (!is.na(command) | is.null(command) | command != ""){
-		DBI::dbExecute(con,command)
+	if (!is.null(command)) {
+		DBI::dbExecute(con, command)
 	}
 	return(con)
 }
